@@ -3,7 +3,7 @@ import time
 
 
 class Truck(Auto):
-    def __init__(self, brand, age, mark, max_load, color=2, weight=1000):
+    def __init__(self, brand, age, mark, max_load, color='blue', weight=1000):
         super().__init__(brand, age, mark, color=2, weight=1000)
         self.max_load = max_load
 
@@ -18,7 +18,7 @@ class Truck(Auto):
 
 
 class Car(Auto):
-    def __init__(self, brand, age, mark, max_speed, color=2, weight=1000):
+    def __init__(self, brand, age, mark, max_speed, color="green", weight=1000):
         super().__init__(brand, age, mark, color=2, weight=1000)
         self.max_speed = max_speed
 
@@ -27,11 +27,11 @@ class Car(Auto):
         print(f"Max speed is {self.max_speed}")
 
 
-truck_1 = Truck("BMW", 12, "truck", 500)
-truck_2 = Truck("MAN", 10, "truck", 200)
+truck_1 = Truck("Volvo", 12, "VNL", 20000, "Red", 18000)
+truck_2 = Truck("Mercedes-Benz", 10, "Actor", 25000, "Silver", 20000)
 truck_1.load()
 truck_2.birthday()
-car_1 = Car("Porshe", 5, "sportcar", 250)
-car_2 = Car("BMW", 6, "car", 300)
+car_1 = Car("Porshe", 5, "911", 250, "Red", 2000)
+car_2 = Car("BMW", 6, "M3", 350, "Black", 1500)
 car_1.move()
 car_2.stop()
