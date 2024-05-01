@@ -4,7 +4,7 @@ import time
 
 class Truck(Auto):
     def __init__(self, brand, age, mark, max_load, color='blue', weight=1000):
-        super().__init__(brand, age, mark, color=2, weight=1000)
+        super().__init__(brand, age, mark, color, weight)
         self.max_load = max_load
 
     def move(self):
@@ -19,7 +19,7 @@ class Truck(Auto):
 
 class Car(Auto):
     def __init__(self, brand, age, mark, max_speed, color="green", weight=1000):
-        super().__init__(brand, age, mark, color=2, weight=1000)
+        super().__init__(brand, age, mark, color, weight)
         self.max_speed = max_speed
 
     def move(self):
@@ -30,8 +30,10 @@ class Car(Auto):
 truck_1 = Truck("Volvo", 12, "VNL", 20000, "Red", 18000)
 truck_2 = Truck("Mercedes-Benz", 10, "Actor", 25000, "Silver", 20000)
 truck_1.load()
+print(truck_2.__dict__)
 truck_2.birthday()
 car_1 = Car("Porshe", 5, "911", 250, "Red", 2000)
 car_2 = Car("BMW", 6, "M3", 350, "Black", 1500)
 car_1.move()
 car_2.stop()
+print(car_2.__dict__)
