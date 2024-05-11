@@ -4,7 +4,7 @@ start = int(input("Enter start number: "))
 prog = int(input("Enter progression: "))
 
 
-class MyClass():
+class MyClass:
 
     def __init__(self, start, prog):
         self.start = start
@@ -32,4 +32,3 @@ while True:
             time.sleep(1)
     except KeyboardInterrupt:
         print("Not so fast, I WANT MORE NUMBERS HEHEHEHEH")
-
