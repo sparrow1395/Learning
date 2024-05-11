@@ -59,4 +59,5 @@ class Calculator:
             print("C'mon im not so smart")
 
 
+
 Calculator.plus(5, "a")
