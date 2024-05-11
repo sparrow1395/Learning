@@ -42,11 +42,15 @@ class Calculator:
     @staticmethod
     def power(a, b):
         try:
+            if b < 0:
+                raise NegativeNumber
             return a ** b
         except TypeError:
             print("It's impossible")
         except OverflowError:
             print("C'mon im not so smart")
+        except NegativeNumber:
+            print("Don't be negative, be positive, enter positive second number ")
 
     @staticmethod
     def root(a):
@@ -59,5 +63,4 @@ class Calculator:
             print("C'mon im not so smart")
 
 
-
-Calculator.plus(5, "a")
+print(Calculator.power(5, 3))
