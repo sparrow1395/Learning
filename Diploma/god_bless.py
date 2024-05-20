@@ -16,9 +16,11 @@ class Person:
         if current_age is None:
             current_age = datetime.date.today()
         if self.death:
-            return (self.death - self.birth).days // 365
+            end_date = self.death
         else:
-            return (current_age - self.birth).days // 365
+            end_date = current_age
+        age = end_date.year - self.birth.year - ((end_date.month, end_date.day) < (self.birth.month, self.birth.day))
+        return age
 
     def __str__(self):
         info = f"{self.first_name}"
@@ -61,7 +63,7 @@ def main():
             fake_birth = input("Enter a date of birth (dd.mm.YYYY): ")
             birth = correct_date(fake_birth)
             fake_death = input("Enter a date of death (dd.mm.YYYY): ")
-            death = correct_date(fake_death)
+            death = correct_date(fake_death) if fake_death else None
             gender = input("Enter a gender: ")
             human = Person(first_name, last_name, patronymic, birth, death, gender)
             look.add_people(human)
@@ -94,9 +96,13 @@ def main():
 def correct_date(date_str):
     for separator in [".", "-", "/", " "]:
         part = date_str.split(separator)
-        if len(part) == 3:
-            day, month, year = map(int, part)
-            return datetime.date(year, month, day)
+        try:
+            if len(part) == 3:
+                day, month, year = map(int, part)
+                return datetime.date(year, month, day)
+        except ValueError:
+            continue
+    raise print("Incorrect format, please try again")
 
 
 if __name__ == "__main__":
